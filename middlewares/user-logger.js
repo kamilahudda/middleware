@@ -1,7 +1,7 @@
 const userLogger = (req, res, next) => {
-    const d = new Date().toISOString()
-    console.log(`[${d}] ${req.method} ${req.originalUrl}`);
-    next();
-}
+  const currentTime = new Date().toISOString();
+  console.log(`[${currentTime}] ${req.method} ${req.originalUrl}`);
+  next();
+};
 
-module.exports = userLogger
+module.exports = userLogger;
