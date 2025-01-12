@@ -1,16 +1,16 @@
-const validAPIKey = '12345'
+const validApiKey = "12345";
 
 const userAuth = (req, res, next) => {
-    const apiKey = req.headers['x-api-key']
-    if (!apiKey) {
-        res.status(501).json({ message: 'Access denied' })
-    }
+  const apiKey = req.headers["x-api-key"];
+  if (!apiKey) {
+    return res.status(401).json({ message: "Access Denied" });
+  }
 
-    if (apiKey !== validAPIKey) {
-        res.status(501).json({ message: 'Invalid API Key' })
-    }
+  if (apiKey !== validApiKey) {
+    return res.status(403).json({ message: "Invalid API Key" });
+  }
 
-    next();
-}
+  next();
+};
 
-module.exports = userAuth
+module.exports = userAuth;
